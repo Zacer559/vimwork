@@ -1,4 +1,4 @@
--- Create this file: ~/.config/nvim/lua/plugins/cmp.lua
+-- ~/.config/nvim/lua/plugins/cmp.lua
 return {
   "hrsh7th/nvim-cmp",
   opts = function(_, opts)
@@ -11,16 +11,26 @@ return {
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-e>"] = cmp.mapping.abort(),
-      ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
-      -- Add our custom Tab navigation
+      -- Change Enter to just be a normal Enter key (not confirm selection)
+      ["<CR>"] = cmp.mapping({
+        i = function(fallback)
+          fallback()
+        end,
+        s = cmp.mapping.confirm({ select = true }),
+      }),
+
+      -- Add Shift+Enter to confirm selection
+      ["<S-CR>"] = cmp.mapping.confirm({ select = true }),
+
+      -- Tab navigation
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         else
           fallback()
         end
-      end, { "i", "s" }),
+      end, { "i", "s" }), 
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
