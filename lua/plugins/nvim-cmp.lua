@@ -17,7 +17,7 @@ return {
         i = function(fallback)
           fallback()
         end,
-        s = cmp.mapping.confirm({ select = true }),
+        s = cmp.mapping.confirm({ select = false }),
       }),
 
       -- Add Shift+Enter to confirm selection
@@ -26,14 +26,14 @@ return {
       -- Tab navigation
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_next_item()
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
         else
           fallback()
         end
-      end, { "i", "s" }), 
+      end, { "i", "s" }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
-          cmp.select_prev_item()
+          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
         else
           fallback()
         end
