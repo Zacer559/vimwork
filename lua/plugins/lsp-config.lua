@@ -56,13 +56,6 @@ return {
                   "workflows/*.{yml,yaml}",
                 },
                 ["https://json.schemastore.org/helmfile"] = { "helmfile.{yml,yaml}", "*/helmfile.{yml,yaml}" },
-                ["https://json.schemastore.org/helm-values"] = {
-                  "values.{yml,yaml}",
-                  "values-*.{yml,yaml}",
-                  "charts/*/values.{yml,yaml}",
-                  "charts/*/values-*.{yml,yaml}",
-                  "**/values.{yml,yaml}",
-                },
                 ["https://json.schemastore.org/cloudbuild"] = { "cloudbuild.{yml,yaml}", "*/cloudbuild.{yml,yaml}" },
                 ["https://json.schemastore.org/codecov"] = { "codecov.{yml,yaml}", ".codecov.{yml,yaml}" },
                 ["https://json.schemastore.org/cloud-sdk-pipeline"] = { "cloudsdk.{yml,yaml}", "*/cloudsdk.{yml,yaml}" },
@@ -81,7 +74,6 @@ return {
                   "argocd/*.{yml,yaml}",
                 },
                 ["https://raw.githubusercontent.com/aws/serverless-application-model/main/samtranslator/schema/schema.json"] = {
-                  "template.{yml,yaml}",
                   "sam.{yml,yaml}",
                   "sam/*.{yml,yaml}",
                   "cloudformation/*.{yml,yaml}",
