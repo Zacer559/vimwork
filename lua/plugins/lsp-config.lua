@@ -10,6 +10,7 @@ return {
                 ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.20.5-standalone-strict/all.json"] = {
                   "*.k8s.yaml",
                   "*kubernetes*.yaml",
+                  "kubernetes/*.yaml",
                   "k8s/*.yaml",
                   "manifests/*.yaml",
                   "charts/*/templates/*.yaml", -- Helm chart templates are Kubernetes manifests
