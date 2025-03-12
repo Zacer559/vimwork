@@ -12,6 +12,7 @@ return {
                   "*kubernetes*.yaml",
                   "k8s/*.yaml",
                   "manifests/*.yaml",
+                  "charts/*/templates/*.yaml", -- Helm chart templates are Kubernetes manifests
                 },
                 ["https://json.schemastore.org/github-workflow"] = { ".github/workflows/*.{yml,yaml}" },
                 ["https://json.schemastore.org/github-action"] = { ".github/action.{yml,yaml}" },
@@ -29,7 +30,11 @@ return {
                   "*play*.{yml,yaml}",
                   "playbooks/*.{yml,yaml}",
                 },
-                ["https://json.schemastore.org/chart.json"] = { "Chart.{yml,yaml}" },
+                ["https://json.schemastore.org/chart.json"] = {
+                  "Chart.{yml,yaml}",
+                  "charts/*/Chart.{yml,yaml}",
+                  "**/Chart.{yml,yaml}",
+                },
                 ["https://json.schemastore.org/dependabot-v2"] = { ".github/dependabot.{yml,yaml}" },
                 ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = {
                   "*gitlab-ci*.{yml,yaml}",
@@ -52,10 +57,10 @@ return {
                 ["https://json.schemastore.org/helmfile"] = { "helmfile.{yml,yaml}", "*/helmfile.{yml,yaml}" },
                 ["https://json.schemastore.org/helm-values"] = {
                   "values.{yml,yaml}",
-                  "*/values.{yml,yaml}",
                   "values-*.{yml,yaml}",
-                  "helm/*/values.{yml,yaml}",
                   "charts/*/values.{yml,yaml}",
+                  "charts/*/values-*.{yml,yaml}",
+                  "**/values.{yml,yaml}",
                 },
                 ["https://json.schemastore.org/cloudbuild"] = { "cloudbuild.{yml,yaml}", "*/cloudbuild.{yml,yaml}" },
                 ["https://json.schemastore.org/codecov"] = { "codecov.{yml,yaml}", ".codecov.{yml,yaml}" },
